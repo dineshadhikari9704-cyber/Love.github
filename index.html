@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Ayusha ❤️</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:linear-gradient(135deg,#ff9a9e,#fad0c4,#ffd1ff);overflow:hidden;height:100vh}
+.page{display:none;height:100vh;width:100%;justify-content:center;align-items:center;flex-direction:column;text-align:center;padding:20px}
+.active{display:flex}
+.card{background:rgba(255,255,255,.92);padding:25px;border-radius:25px;max-width:850px;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+h1{color:#ff3d7f;margin-bottom:15px}
+button{padding:12px 24px;border:none;border-radius:30px;background:#ff4d88;color:white;font-size:16px;margin-top:15px;cursor:pointer}
+input{padding:12px;font-size:18px;width:180px;text-align:center;border-radius:10px;border:1px solid #ccc}
+.choices{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+.choice{width:120px;height:120px;background:white;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:55px;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,.15)}
+img{width:220px;border-radius:20px;margin:10px}
+.gallery{display:flex;flex-wrap:wrap;justify-content:center}
+.heart{position:absolute;color:pink;animation:float 8s linear infinite}
+@keyframes float{0%{transform:translateY(100vh);}100%{transform:translateY(-100px);}}
+</style>
+</head>
+<body>
+<div class="page active" id="lock">
+<div class="card">
+<h1>🔒 Birthday Surprise For Saniiii 💖</h1>
+<h2>Code: 0123456789</h2><br>
+<input type="password" id="pass" maxlength="4">
+<br>
+<button onclick="unlock()">Open</button>
+</div>
+</div>
+
+<div class="page" id="intro">
+<div class="card">
+<h1>🐶🎂 Happy Birthday Ayusha ❤️</h1>
+<h2>My Saniiii 💖</h2>
+<p>Love you my love ❤️</p>
+<button onclick="show('candle')">Next</button>
+</div>
+</div>
+
+<div class="page" id="candle">
+<div class="card">
+<h1 id="cake">🎂🕯️</h1>
+<button onclick="blow()">Blow Candle</button>
+<div id="wish"></div>
+</div>
+</div>
+
+<div class="page" id="choose">
+<div class="card">
+<h1>Choose Your Surprise ❤️</h1>
+<div class="choices">
+<div class="choice" onclick="show('camera')">📷</div>
+<div class="choice" onclick="show('bottle')">🍾</div>
+<div class="choice" onclick="show('star')">⭐</div>
+</div>
+</div>
+</div>
+
+<div class="page" id="camera">
+<div class="card">
+<h1>📷 So Cute ❤️</h1>
+<p>Replace with your photo: photo1.jpg</p>
+<h2>Who is this beautiful girl? ✨</h2>
+<button onclick="show('choose')">Back</button>
+</div>
+</div>
+
+<div class="page" id="bottle">
+<div class="card">
+<h1>🍾 Beautiful Memories</h1>
+<p>Add your photos (photo2.jpg to photo5.jpg) here.</p>
+<p>Happy Birthday Ayusha ❤️ Love you forever, my Saniiii 💖</p>
+<button onclick="show('choose')">Back</button>
+</div>
+</div>
+
+<div class="page" id="star">
+<div class="card">
+<h1>⭐ My Star</h1>
+<p>Add your favorite song link here.</p>
+<button onclick="show('choose')">Back</button>
+</div>
+</div>
+
+<script>
+function unlock(){
+ if(document.getElementById("pass").value==="2987"){show("intro");}
+ else{alert("Wrong Password ❤️");}
+}
+function show(id){
+ document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));
+ document.getElementById(id).classList.add("active");
+}
+function blow(){
+ document.getElementById("cake").innerHTML="🎂";
+ document.getElementById("wish").innerHTML='<h1>🎉 Happy Birthday My Love ❤️</h1><button onclick="show(\'choose\')">Next</button>';
+}
+for(let i=0;i<30;i++){
+ let h=document.createElement("div");
+ h.className="heart"; h.innerHTML="💖";
+ h.style.left=Math.random()*100+"%";
+ h.style.animationDuration=(5+Math.random()*5)+"s";
+ document.body.appendChild(h);
+}
+</script>
+</body>
+</html>
